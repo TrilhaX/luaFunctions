@@ -26,6 +26,8 @@ function GetPositionFARMMETHOD(Mob, Method, offset) --Dont Put offset = 0
         Pos = positionCharacter(MobPosition + MobCFrame.LookVector * offset)
     elseif Method == 'Behind' then
         Pos = positionCharacter(MobPosition - MobCFrame.LookVector * offset)
+    else
+        print("Invalid Method")
     end
 
     return Pos
