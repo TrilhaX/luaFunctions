@@ -1,52 +1,48 @@
 function killAura(mob, method, delay)
-    if method == "humanoid" then
-        for i, v in ipairs(mob:GetChildren()) do
-            local humanoid = v:FindFirstChild("Humanoid")
-            if humanoid then
-                local targetHealth = 0
-                local decrement = 500
+    if not mob or not method then
+        warn("Invalid mob or method")
+        return
+    end
 
-                while humanoid.Health > targetHealth do
-                    humanoid.Health = math.max(humanoid.Health - decrement, targetHealth)
-                    wait(delay)
-                end
+    function damageHumanoid(humanoid)
+        local decrement = 500
+        while humanoid.Health > 0 do
+            humanoid:TakeDamage(decrement) -- more reliable than setting Health directly
+            task.wait(delay)
+        end
+    end
+
+    function destroyHead(v)
+        local head = v:FindFirstChild("Head")
+        if head then
+            head:Destroy()
+            task.wait(delay)
+        end
+    end
+
+    function networkDestroy(v)
+        local humanoid = v:FindFirstChild("Humanoid")
+        if humanoid and humanoid.Parent and humanoid.Parent.PrimaryPart then
+            local rootPart = humanoid.Parent.PrimaryPart
+            rootPart:SetNetworkOwner(nil)
+            rootPart:Destroy()
+            task.wait(delay)
+        end
+    end
+
+    for _, v in ipairs(mob:GetChildren()) do
+        local humanoid = v:FindFirstChild("Humanoid")
+        if humanoid then
+            if method == "humanoid" or method == "takeDamage" then
+                damageHumanoid(humanoid)
+            elseif method == "headDestroy" then
+                destroyHead(v)
+            elseif method == "networkownership" then
+                networkDestroy(v)
+            else
+                warn("Invalid method specified: " .. tostring(method))
+                return
             end
         end
-    elseif method == "headDestroy" then
-        for i, v in ipairs(mob:GetChildren()) do
-            local head = v:FindFirstChild("Head")
-            if head then
-                head:Destroy()
-                wait(delay)
-            end
-        end
-    elseif method == "networkownership" then
-        for i, v in ipairs(mob:GetChildren()) do
-            local humanoid = v:FindFirstChild("Humanoid")
-            if humanoid then
-                if humanoid.Parent and humanoid.Parent.PrimaryPart then
-                    local part = humanoid.Parent.PrimaryPart
-                    part:SetNetworkOwner(nil)
-                end
-                if humanoid.Parent and humanoid.Parent.PrimaryPart then
-                    humanoid.Parent.PrimaryPart:Destroy()
-                    wait(delay)
-                end
-            end
-        end
-    elseif method == "takeDamage" then
-        for i, v in ipairs(mob:GetChildren()) do
-            local humanoid = v:FindFirstChild("Humanoid")
-            if humanoid then
-                local targetHealth = 0
-                local decrement = 500
-                while humanoid.Health > targetHealth do
-                    humanoid.Health = math.max(humanoid.Health - decrement, targetHealth)
-                    wait(delay)
-                end
-            end
-        end
-    else
-        print("No method specified")
     end
 end
