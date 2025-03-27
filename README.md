@@ -1,37 +1,40 @@
----
-
 # TrilhaX - Safe & Compact Lua Functions  
 
-Hey! This is **TrilhaX**, a small collection of **safe and line-saving Lua functions** I made to help with common tasks when scripting, especially for Roblox.  
+Welcome to **TrilhaX**, a small collection of **safe and line-saving Lua functions**, designed to make scripting easier, especially for Roblox.  
 
-## 🚀 About  
+## 🚀 About the Project  
 
-I built these functions to avoid common errors like trying to access nil objects or infinite yields when waiting for children. They also help me **write less code** by wrapping repetitive logic into simple, reusable functions. Basically, they make scripting a lot safer and cleaner without having to repeat the same patterns over and over.  
+I created these functions to prevent common issues, such as accessing non-existent objects or getting stuck in infinite yields when waiting for elements. They also help **reduce code repetition** by encapsulating frequently used logic into simple, reusable functions. In short, they make scripting **safer and cleaner**, without the need to rewrite the same checks repeatedly.  
 
 ## 📂 What's Inside  
 
-Here’s a quick overview of what I’ve added:  
+Here’s a summary of the available files and their functionalities:  
 
-| File                             | What It Does                                    |
-|----------------------------------|-------------------------------------------------|
-| `autoExecAfterTP.lua`             | Automatically runs your script after teleporting. |
-| `fireButtonAllMethods.lua`        | Safely fires all usable methods on a button.   |
-| `firePromiximityPrompt.lua`       | Fires a ProximityPrompt safely if it exists.  |
-| `getCFrame.lua`                   | Gets an object's CFrame safely or gives a default. |
-| `safeCallToGetChildren.lua`       | Safely gets all children of an instance.      |
-| `safeCallToWaitForChild.lua`      | Waits for a child safely, avoiding errors or infinite waits. |
-| `tweenForMobs.lua`                | Tweens mobs safely and easily.                |
-| `tweenForObjAndNpc.lua`           | Tweens objects and NPCs with checks.          |  
+| File                            | Description                                                  |
+|---------------------------------|--------------------------------------------------------------|
+| `autoExecAfterTP.lua`           | Automatically runs your script after teleporting.          |
+| `fireButtonAllMethods.lua`      | Safely fires all usable methods on a button.               |
+| `fireProximityPrompt.lua`       | Fires a ProximityPrompt safely if it exists.               |
+| `getCFrame.lua`                 | Gets an object's CFrame safely or provides a default.      |
+| `getModuleInfo.lua`             | Retrieves information about a module safely.               |
+| `getRemoteInfo.lua`             | Fetches details about a remote event securely.             |
+| `hideInfoPlayerAllGames.lua`    | Hides player information across all games.                 |
+| `killAuraAllGame.lua`           | Implements a kill aura that works across all games.        |
+| `safeCallToGetChildren.lua`     | Safely gets all children of an instance.                   |
+| `safeCallToWaitForChild.lua`    | Waits for a child safely, avoiding errors or infinite waits. |
+| `safeDarkDexWithDecompiler.lua` | A safer implementation of DarkDex with decompiler.         |
+| `safeRemoteSpy.lua`             | Securely spies on remote events.                           |
+| `tweenForMobs.lua`              | Tweens mobs safely and easily.                             |
+| `tweenForObjAndNpc.lua`         | Tweens objects and NPCs with additional checks.            |
+| `typeInput.lua`                 | Handles typed input securely.                              |
 
-## ✅ Why I Made This  
+## ✅ Why I Created This  
 
-- To **avoid crashing scripts** when objects don’t exist yet.  
-- To **save time and lines** by not writing the same checks all the time.  
-- To **make my code easier to read and maintain**.  
-- To have a **personal toolkit** that I can use in any project without worrying about small mistakes.  
+- **Prevent crashes** when objects do not yet exist.  
+- **Save time and lines of code** by eliminating repetitive checks.  
+- **Make my code more readable and maintainable.**  
+- Have a **personal toolkit** for any project, without worrying about small mistakes.  
 
 ## 📜 License  
 
-MIT License — feel free to use, modify, and share as long as you give credit.  
-
----  
+This project is licensed under the MIT License — feel free to use, modify, and share it as long as you give proper credit.  
