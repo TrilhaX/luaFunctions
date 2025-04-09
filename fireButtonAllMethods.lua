@@ -25,6 +25,7 @@ function firebutton(Button, method)
         game:GetService("GuiService").SelectedObject = Button
         game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Return, false, game)
         game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+        wait(1)
         game:GetService("GuiService").SelectedObject = nil
     else
         print("Unsupported method")
