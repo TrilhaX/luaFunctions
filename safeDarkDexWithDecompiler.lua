@@ -21,8 +21,7 @@ function safeDarkDex()
         return
     end
     print("Authorized Game")
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/TrapstarKS/Signal/refs/heads/main/Decompile.lua"))()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/TrapstarKS/Main/main/DarkDex.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
 end
 
 safeDarkDex()
